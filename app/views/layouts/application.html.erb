@@ -11,6 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'shared/navbar' %>
+    <div class='has-navbar'>
+      <% if notice %>
+        <div class='notification is-success is-light'><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <div class='notification is-danger is-light'><%= alert %></div>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
