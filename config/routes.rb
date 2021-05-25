@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :articles
   root 'users#index'
 
   resources :users, only: [:index, :show, :new, :create]
