@@ -5,6 +5,7 @@ class Article < ApplicationRecord
 
   belongs_to :author, foreign_key: 'author_id', class_name: 'User'
 
-  has_many :article_categories
-  has_many :categories, through: :article_categories
+  has_many :article_categories, class_name: 'ArticleCategory'
+  has_many :categories, through: :article_categories, class_name: 'Category', dependent: :destroy
+
 end

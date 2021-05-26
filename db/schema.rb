@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2021_05_25_213743) do
   enable_extension "plpgsql"
 
   create_table "article_categories", force: :cascade do |t|
-    t.bigint "article_id", null: false
-    t.bigint "category_id", null: false
+    t.bigint "article_id"
+    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_article_categories_on_article_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_213743) do
   end
 
   create_table "articles", force: :cascade do |t|
-    t.integer "author_id", null: false
+    t.bigint "author_id"
     t.string "title"
     t.text "text"
     t.text "image"
@@ -47,13 +47,12 @@ ActiveRecord::Schema.define(version: 2021_05_25_213743) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.bigint "article_id_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "article_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["article_id_id"], name: "index_votes_on_article_id_id"
+    t.index ["article_id"], name: "index_votes_on_article_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
-  add_foreign_key "article_categories", "articles"
-  add_foreign_key "article_categories", "categories"
 end

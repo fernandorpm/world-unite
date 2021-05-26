@@ -8,4 +8,8 @@ module ApplicationHelper
     end
   end
 
+  def current_user
+    return session[:name]
+  end
+
 end
