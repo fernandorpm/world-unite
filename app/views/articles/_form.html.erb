@@ -1,7 +1,7 @@
 <%= form_with(model: article) do |form| %>
   <% if article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+    <div class='notification is-danger is-light'>
+      <h2 class='title is-5'><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
 
       <ul>
         <% article.errors.each do |error| %>
@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.label :author_id %>
+    <%= form.text_field :author_id %>
   </div>
 
   <div class="field">

@@ -1,11 +1,9 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Articles</h1>
 
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th>author_id</th>
       <th>Title</th>
       <th>Text</th>
       <th>Image</th>
@@ -16,7 +14,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= article.user_id %></td>
+        <td><%= article.author_id %></td>
         <td><%= article.title %></td>
         <td><%= article.text %></td>
         <td><%= article.image %></td>
