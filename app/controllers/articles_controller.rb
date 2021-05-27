@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :redirect_unlogged_user, only: %i[ new create edit update destroy ]
   before_action :set_article, only: %i[ show edit update destroy ]
 
   # GET /articles or /articles.json
@@ -60,6 +61,19 @@ class ArticlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
+    end
+
+    # Check if there is a user logged in (stored in sessions)
+    def logged_in?
+      return session[:name]
+    end
+
+    # Redirect the visitor if they're not logged in
+    def redirect_unlogged_user
+      if !logged_in?
+        redirect_to new_session_path
+        flash[:alert] = 'You must be logged in to log out, dummy!'
+      end
     end
 
     # Only allow a list of trusted parameters through.

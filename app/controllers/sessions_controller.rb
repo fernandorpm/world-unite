@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
     respond_to do |format|
       if @user
         session[:name] = login_session
+        session[:user_id] = @user.id
         format.html { redirect_to @user, notice: "You are now logged in." }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,7 +37,10 @@ class SessionsController < ApplicationController
 
     # Redirect the visitor if they're not logged in
     def redirect_unlogged_user
-      redirect_to root_path unless logged_in?
+      if !logged_in?
+        redirect_to new_session_path
+        flash[:alert] = 'You must be logged in to log out, dummy!'
+      end
     end
 
 end

@@ -1,0 +1,9 @@
+<h1>Categories</h1>
+
+
+<% @categories.each do |category| %>
+  <%= category.name %>
+  <%= category.priority %>
+  <%= link_to 'Show', category %>
+  <br>
+<% end %>

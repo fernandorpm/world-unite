@@ -43,7 +43,10 @@ class UsersController < ApplicationController
 
     # Redirect the visitor if they're not logged in
     def redirect_unlogged_user
-      redirect_to root unless logged_in?
+      if !logged_in?
+        redirect_to new_session_path
+        flash[:alert] = 'You must be logged in to proceed.'
+      end
     end
 
     # Only allow a list of trusted parameters through.

@@ -16,6 +16,14 @@
 
  @import "https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css";
 
+ .navbar {
+   padding: 10px;
+ }
+
  .has-navbar {
-   padding-top: 52px
+   padding-top: 72px
+ }
+
+ .navbar-item:hover {
+   color: orangered !important;
  }

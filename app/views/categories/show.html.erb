@@ -1,0 +1,14 @@
+<h1 class="title is-4"><%= @category.name %> News</h1>
+<h3><%= pluralize(@category.articles.count, 'Article') %></h3>
+
+<br>
+
+<% @category.articles.each do |article| %>
+  <%= article.title %>
+  <br>
+  <%= article.text %>
+  <br>
+  <%= link_to 'Show', article %>
+  <br>
+  <br>
+<% end %>
