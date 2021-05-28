@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
+    @article.article_categories.build
   end
 
   # GET /articles/1/edit
@@ -23,6 +24,7 @@ class ArticlesController < ApplicationController
   # POST /articles or /articles.json
   def create
     @article = Article.new(article_params)
+    @article.article_category_ids = @article.id
 
     respond_to do |format|
       if @article.save
@@ -68,6 +70,11 @@ class ArticlesController < ApplicationController
       return session[:name]
     end
 
+    # Get current logged user id
+    def current_user_id
+      return session[:id]
+    end
+
     # Redirect the visitor if they're not logged in
     def redirect_unlogged_user
       if !logged_in?
@@ -78,6 +85,9 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:author_id, :title, :text, :image)
+      params.require(:article).permit(
+        :author_id, :title, :text, :image,
+        article_categories_attributes: [:article_id, :category_id]
+      )
     end
 end

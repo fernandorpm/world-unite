@@ -11,9 +11,12 @@
     </div>
   <% end %>
 
+  <%= form.fields_for :article_categories do |ac_form| %>
+    <%= ac_form.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+  <% end %>
+
   <div class="field">
-    <%= form.label :author_id %>
-    <%= form.text_field :author_id %>
+    <%= form.text_field :author_id, value: current_user_id, readonly: true %>
   </div>
 
   <div class="field">

@@ -27,3 +27,22 @@
  .navbar-item:hover {
    color: orangered !important;
  }
+
+ .index-category-container {
+   height: 200px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   font-weight: bold;
+   color: white;
+ }
+
+ .index-category-container a {
+   color: white;
+   border-bottom: 2px solid orange;
+   transition-duration: 0.2s;
+ }
+
+ .index-category-container a:hover {
+   opacity: 0.5;
+ }

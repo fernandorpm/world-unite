@@ -1,0 +1,12 @@
+<% if Article.any? %>
+<section class='hero is-link is-large'>
+  <div class='hero-body'>
+    <p class='title is-4'>
+      <%= Article.most_voted.title %>
+    </p>
+    <p class='subtitle'>
+      <%= Article.most_voted.text %>
+    </p>
+  </div>
+</section>
+<% end %>

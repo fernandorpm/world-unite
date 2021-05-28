@@ -1,9 +1,20 @@
-<h1>Categories</h1>
+<%= render 'most_voted_article' %>
 
+  <div class='columns'>
+    <% @categories.sort_by_priority.each do |category| %>
+      <div class='column has-background-dark'>
+        <div class='p-4'>
+          <div class='index-category-container'>
+            <p><%= link_to category.name, category_path(category) %></p>
+            <% if category.articles.first %>
+              <%= url_for(category.articles.first.image) %>
 
-<% @categories.each do |category| %>
-  <%= category.name %>
-  <%= category.priority %>
-  <%= link_to 'Show', category %>
-  <br>
-<% end %>
+              <p><%= category.articles.first.title %></p>
+            <% else %>
+              <p>No Articles found</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+  </div>

@@ -13,4 +13,8 @@ module ApplicationHelper
     return session[:name]
   end
 
+  def current_user_id
+    return session[:user_id]
+  end
+
 end
