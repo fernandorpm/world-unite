@@ -2,13 +2,15 @@
 
   <div class='columns'>
     <% @categories.sort_by_priority.each do |category| %>
-      <div class='column has-background-dark'>
+      <div class='column has-background-dark bg-img' 
+        <% if category.articles.first %>
+        style="background-image: url('<%= rails_blob_url(category.articles.first.image) %>')" 
+        <% end %>
+        >
         <div class='p-4'>
           <div class='index-category-container'>
             <p><%= link_to category.name, category_path(category) %></p>
             <% if category.articles.first %>
-              <%= url_for(category.articles.first.image) %>
-
               <p><%= category.articles.first.title %></p>
             <% else %>
               <p>No Articles found</p>

@@ -1,5 +1,5 @@
 <% if Article.any? %>
-<section class='hero is-link is-large'>
+<section class='hero is-link is-large bg-img' style="background-image: url('<%= rails_blob_url(Article.most_voted.image) %>')">
   <div class='hero-body'>
     <p class='title is-4'>
       <%= Article.most_voted.title %>

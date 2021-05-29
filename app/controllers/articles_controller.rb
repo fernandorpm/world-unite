@@ -14,7 +14,6 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
-    @article.article_categories.build
   end
 
   # GET /articles/1/edit
@@ -23,11 +22,11 @@ class ArticlesController < ApplicationController
 
   # POST /articles or /articles.json
   def create
-    @article = Article.new(article_params)
-    @article.article_category_ids = @article.id
+    category = Category.find(article_params[:category_id])
+    @article = category.articles.create(article_params.except(:category_id))
 
     respond_to do |format|
-      if @article.save
+      if @article
         format.html { redirect_to @article, notice: "Article was successfully created." }
         format.json { render :show, status: :created, location: @article }
       else
@@ -86,8 +85,7 @@ class ArticlesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(
-        :author_id, :title, :text, :image,
-        article_categories_attributes: [:article_id, :category_id]
+        :author_id, :title, :text, :image, :category_id
       )
     end
 end

@@ -12,13 +12,17 @@ class Article < ApplicationRecord
   has_many :article_categories, class_name: 'ArticleCategory'
   has_many :categories, through: :article_categories, class_name: 'Category', dependent: :destroy
 
-  accepts_nested_attributes_for :article_categories, allow_destroy: true
+  accepts_nested_attributes_for :categories, allow_destroy: true
 
   scope :most_voted, -> {
-    joins(:votes)
-      .group(:article_id, :id)
-      .order('COUNT(votes.article_id) desc')
-      .first
+    if Vote.count > 0
+      joins(:votes)
+        .group(:article_id, :id)
+        .order('COUNT(votes.article_id) desc')
+        .first
+    else
+      order('created_at desc').first
+    end
   }
 
 end

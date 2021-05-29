@@ -46,3 +46,8 @@
  .index-category-container a:hover {
    opacity: 0.5;
  }
+
+ .bg-img {
+   background-size: cover;
+   background-position: center;
+ }
