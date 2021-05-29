@@ -1,7 +1,7 @@
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+    <a class="navbar-item" href="<%= root_path %>">
+      <h1 class="title is-5">WORLD <b class="orange-text">UNITE</b></h1>
     </a>
   </div>
 
@@ -9,7 +9,9 @@
     <div class="navbar-start">
       <%= link_to 'HOME', root_path, class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %>
 
-      <%= link_to 'The Americas', articles_path, class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %>
+      <%= link_to 'Write an Article', new_article_path, class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %>
+
+      <!-- <%= link_to 'The Americas', articles_path, class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %>
 
       <%= link_to 'Africa', articles_path, class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %>
 
@@ -19,7 +21,7 @@
 
       <%= link_to 'Oceania', articles_path, class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %>
 
-      <%= link_to 'Antarctica', articles_path, class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %>
+      <%= link_to 'Antarctica', articles_path, class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %> -->
     </div>
 
     <div class="navbar-end">

@@ -1,5 +1,18 @@
 <% if Article.any? %>
-<section class='hero is-link is-large bg-img' style="background-image: url('<%= rails_blob_url(Article.most_voted.image) %>')">
+<section class='hero is-link is-large' 
+  <% if Article.most_voted %>
+  style="
+        background: url('<%= rails_blob_url(Article.most_voted.image) %>'),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0.8) 100%);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-blend-mode: color-burn;
+        " 
+  <% else %>
+  style="background: grey"
+  <% end %>  
+>
   <div class='hero-body'>
     <p class='title is-4'>
       <%= Article.most_voted.title %>

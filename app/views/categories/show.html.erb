@@ -1,14 +1,29 @@
-<h1 class="title is-4"><%= @category.name %> News</h1>
-<h3><%= pluralize(@category.articles.count, 'Article') %></h3>
+<section class="container">
+  <h1 class="title is-2 mb-1"><%= @category.name %> News</h1>
+  <h3 class="mb-5"><%= pluralize(@category.articles.count, 'Article') %></h3>
 
-<br>
+  <br>
 
-<% @category.articles.each do |article| %>
-  <%= article.title %>
-  <br>
-  <%= article.text %>
-  <br>
-  <%= link_to 'Show', article %>
-  <br>
-  <br>
-<% end %>
+  <% @category.articles.each do |article| %>
+    <div class="columns m-1">
+      <div class="column is-2" 
+        style="
+          background: url('<%= rails_blob_url(article.image) %>');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          background-blend-mode: color-burn;
+          min-height: 200px;
+          "
+      >
+      </div>
+      <div class="column is-10 is-flex is-flex-direction-column is-justify-content-space-between p-0 pl-5">
+        <h3 class="title is-3"><%= article.title %></h3>
+        <h4 class="title is-6"><%= article.text %></h4>
+        <%= link_to 'Read', article, class: 'button max-button-size' %>
+      </div>
+    </div>
+
+    <hr>
+  <% end %>
+</section>

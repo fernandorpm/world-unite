@@ -2,9 +2,18 @@
 
   <div class='columns'>
     <% @categories.sort_by_priority.each do |category| %>
-      <div class='column has-background-dark bg-img' 
+      <div class='column bg-img' 
         <% if category.articles.first %>
-        style="background-image: url('<%= rails_blob_url(category.articles.first.image) %>')" 
+          style="
+                background: url('<%= rails_blob_url(category.articles.first.image) %>'),
+                linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.8) 80%);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                background-blend-mode: color-burn;
+                " 
+        <% else %>
+          style="background: grey"
         <% end %>
         >
         <div class='p-4'>

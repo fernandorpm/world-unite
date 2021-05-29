@@ -28,6 +28,10 @@
    color: orangered !important;
  }
 
+ .orange-text {
+  color: orangered;
+}
+
  .index-category-container {
    height: 200px;
    display: flex;
@@ -39,7 +43,7 @@
 
  .index-category-container a {
    color: white;
-   border-bottom: 2px solid orange;
+   border-bottom: 2px solid yellow;
    transition-duration: 0.2s;
  }
 
@@ -47,7 +51,6 @@
    opacity: 0.5;
  }
 
- .bg-img {
-   background-size: cover;
-   background-position: center;
+ .max-button-size {
+   max-width: 120px;
  }
