@@ -13,14 +13,14 @@
                 background-blend-mode: color-burn;
                 " 
         <% else %>
-          style="background: grey"
+          style="background: #332f2d"
         <% end %>
         >
         <div class='p-4'>
           <div class='index-category-container'>
             <p><%= link_to category.name, category_path(category) %></p>
             <% if category.articles.first %>
-              <p><%= category.articles.first.title %></p>
+              <p class="is-capitalized"><%= category.articles.first.title %></p>
             <% else %>
               <p>No Articles found</p>
             <% end %>

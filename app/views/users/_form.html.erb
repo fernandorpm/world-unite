@@ -13,10 +13,11 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <br>
+    <%= form.text_field :name, class: 'w-100' %>
   </div>
 
   <div class="actions">
-    <%= form.submit 'Register' %>
+    <%= form.submit 'Register', class:'button is-success w-100 my-5' %>
   </div>
 <% end %>

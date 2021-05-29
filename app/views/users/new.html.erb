@@ -1,5 +1,9 @@
-<h1 class='title'>Register</h1>
+<section class="container mx-auto p-5 columns">
+  <div class="mx-auto">
+  <h1 class='title'>Register</h1>
 
-<%= render 'form', user: @user %>
+  <%= render 'form', user: @user %>
 
-<%= link_to 'Back', users_path %>
+  <%= link_to 'Already a member? Log In', new_session_path, class: 'button is-ghost w-100' %>
+  </div>
+</section>

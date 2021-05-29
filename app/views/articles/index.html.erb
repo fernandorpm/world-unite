@@ -1,31 +1,34 @@
-<h1>Articles</h1>
+<section class="container">
+  <h1 class="title is-2 mb-1">All Articles</h1>
+  <h3 class="mb-5"><%= pluralize(@articles.count, 'Article') %></h3>
+  <%= link_to 'Write an Article', new_article_path, class:'button is-link' %>
 
-<table>
-  <thead>
-    <tr>
-      <th>author_id</th>
-      <th>Title</th>
-      <th>Text</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <br>
+  <br>
 
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.author_id %></td>
-        <td><%= article.title %></td>
-        <td><%= article.text %></td>
-        <td><%= image_tag article.image %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <% @articles.each do |article| %>
+    <div class="columns m-1">
+      <div class="column is-2" 
+        style="
+          background: url('<%= rails_blob_url(article.image) %>');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          background-blend-mode: color-burn;
+          min-height: 200px;
+          "
+      >
+      </div>
+      <div class="column is-10 is-flex is-flex-direction-column is-justify-content-space-between p-0 pl-5">
+        <div>
+          <h3 class="title is-3 m-0 is-capitalized"><%= article.title %></h3>
+          <h4>by <b><%= article.author.name %></b> in <%= article.categories.first.name %></h4>
+        </div>
+        <h4 class="title is-6"><%= article.mini_text %></h4>
+        <%= link_to 'Read', article, class: 'button max-button-size' %>
+      </div>
+    </div>
 
-<br>
-
-<%= link_to 'New Article', new_article_path %>
+    <hr>
+  <% end %>
+</section>

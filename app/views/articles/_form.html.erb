@@ -11,28 +11,34 @@
     </div>
   <% end %>
 
-  <%= form.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+  <div class="field">
+    <%= form.label :category_id %>
+    <br>
+    <%= form.collection_select :category_id, Category.all, :id, :name, class: 'w-100' %>
+  </div>
 
   <div class="field">
-    <%= form.text_field :author_id, value: current_user_id, readonly: true %>
+    <%= form.hidden_field :author_id, value: current_user_id, readonly: true %>
   </div>
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <br>
+    <%= form.text_field :title, class: 'w-100' %>
   </div>
 
   <div class="field">
     <%= form.label :text %>
-    <%= form.text_area :text %>
+    <br>
+    <b><%= form.text_area :text, class: 'w-100', cols: 50, rows: 10 %></b>
   </div>
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= form.file_field :image, class: 'w-100' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Save Article', class: 'button is-success w-100 my-5' %>
   </div>
 <% end %>

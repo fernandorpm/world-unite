@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  include ActionView::Helpers::TextHelper
+  
   validates :title, :text, :image, presence: true
   validates :title, length: { in: 8..100 }
   validates :text, length: { in: 50..2000 }
@@ -24,5 +26,9 @@ class Article < ApplicationRecord
       order('created_at desc').first
     end
   }
+
+  def mini_text
+    truncate(text, :length => 27)
+  end
 
 end

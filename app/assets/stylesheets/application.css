@@ -16,6 +16,14 @@
 
  @import "https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css";
 
+ .mx-auto {
+  margin: 0 auto;
+ }
+
+ .w-100 {
+   width: 100%;
+ }
+
  .navbar {
    padding: 10px;
  }
@@ -53,4 +61,16 @@
 
  .max-button-size {
    max-width: 120px;
+ }
+
+ textarea,
+ input {
+   border-radius: 4px;
+   border: 1px solid lightgrey;
+   padding: 8px;
+   min-width: 100%;
+ }
+
+ select {
+   padding: 4px;
  }

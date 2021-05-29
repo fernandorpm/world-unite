@@ -1,3 +1,7 @@
-<%= render 'form', user: @user %>
+<section class="container mx-auto p-5 columns">
+  <div class="mx-auto">
+    <%= render 'form', user: @user %>
 
-<%= link_to 'Back', root_path %>
+    <%= link_to 'New here? Sign Up', new_user_path, class: 'button is-ghost w-100' %>
+  </div>
+</section>

@@ -1,5 +1,5 @@
 <section class="container">
-  <h1 class="title is-2 mb-1"><%= @category.name %> News</h1>
+  <h1 class="title is-2 mb-1">Articles in <%= @category.name %></h1>
   <h3 class="mb-5"><%= pluralize(@category.articles.count, 'Article') %></h3>
 
   <br>
@@ -18,8 +18,11 @@
       >
       </div>
       <div class="column is-10 is-flex is-flex-direction-column is-justify-content-space-between p-0 pl-5">
-        <h3 class="title is-3"><%= article.title %></h3>
-        <h4 class="title is-6"><%= article.text %></h4>
+        <div>
+          <h3 class="title is-3 m-0 is-capitalized"><%= article.title %></h3>
+          <h4>by <b><%= article.author.name %></b> in <%= article.categories.first.name %></h4>
+        </div>
+        <h4 class="title is-6"><%= article.mini_text %></h4>
         <%= link_to 'Read', article, class: 'button max-button-size' %>
       </div>
     </div>
