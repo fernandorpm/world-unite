@@ -1,21 +1,23 @@
-<p>
-  <strong>User:</strong>
-  <%= @article.author_id %>
-</p>
+<section class="article-container container-fluid px-5">
+  
+  <h1 class="title"><%= @article.title %></h1>
+  <h6 class="mb-5">by <%= @article.author.name %></h6>
+  <br>
+  <div style="
+  background: url('<%= rails_blob_url(@article.image) %>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: color-burn;
+  min-height: 300px;
+  "
+  ></div>
+  <br>
+  <p>
+    <%= @article.text %>
+  </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+  
+  <%= link_to 'Back', articles_path %>
+</section>
 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @article.image %>
-</p>
-
-<%= link_to 'Back', articles_path %>

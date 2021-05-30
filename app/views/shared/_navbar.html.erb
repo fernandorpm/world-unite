@@ -7,11 +7,12 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <%= link_to 'HOME', root_path, class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %>
+      <%= link_to 'HOME' , root_path, class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %>
 
-      <%= link_to 'Write an Article', new_article_path, class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %>
+        <%= link_to 'Write an Article' , new_article_path,
+          class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %>
 
-      <!-- <%= link_to 'The Americas', articles_path, class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %>
+          <!-- <%= link_to 'The Americas', articles_path, class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %>
 
       <%= link_to 'Africa', articles_path, class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %>
 
@@ -26,6 +27,7 @@
 
     <div class="navbar-end">
       <%= logged_in? %>
+      <%= link_to show_svg('search.svg'), articles_path, class: 'navbar-item' %>
     </div>
   </div>
 </nav>

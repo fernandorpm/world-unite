@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       if @user
         session[:name] = login_session
         session[:user_id] = @user.id
-        format.html { redirect_to @user, notice: "You are now logged in." }
+        format.html { redirect_to root_path }
       else
         format.html { render :new, status: :unprocessable_entity }
         flash.now[:alert] = 'Name not found. Please try again.'

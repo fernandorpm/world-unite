@@ -3,7 +3,7 @@ class Article < ApplicationRecord
   
   validates :title, :text, :image, presence: true
   validates :title, length: { in: 8..100 }
-  validates :text, length: { in: 50..2000 }
+  validates :text, length: { in: 50..5000 }
 
   belongs_to :author, foreign_key: 'author_id', class_name: 'User'
 
@@ -28,7 +28,7 @@ class Article < ApplicationRecord
   }
 
   def mini_text
-    truncate(text, :length => 27)
+    truncate(text, :length => 47)
   end
 
 end

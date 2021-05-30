@@ -56,11 +56,16 @@
  }
 
  .index-category-container a:hover {
-   opacity: 0.5;
+   opacity: 0.7;
  }
 
  .max-button-size {
    max-width: 120px;
+ }
+
+ .article-container {
+   max-width: 800px;
+   margin: 0 auto;
  }
 
  textarea,

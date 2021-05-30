@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
     def redirect_unlogged_user
       if !logged_in?
         redirect_to new_session_path
-        flash[:alert] = 'You must be logged in to log out, dummy!'
+        flash[:alert] = 'You must be logged in to write an article.'
       end
     end
 
