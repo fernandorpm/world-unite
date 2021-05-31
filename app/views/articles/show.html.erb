@@ -1,4 +1,4 @@
-<section class="article-container container-fluid px-5">
+<section class="article-container container-fluid p-5 has-background-white min-h-100">
   
   <h1 class="title"><%= @article.title %></h1>
   <h6 class="mb-5">by <%= @article.author.name %></h6>
@@ -17,7 +17,6 @@
     <%= @article.text %>
   </p>
 
-  
-  <%= link_to 'Back', articles_path %>
+  <%= link_to 'Back', articles_path, class:'button my-5' %>
 </section>
 

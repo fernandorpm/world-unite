@@ -28,7 +28,11 @@ class Article < ApplicationRecord
   }
 
   def mini_text
-    truncate(text, :length => 47)
+    truncate(text, :length => 97)
+  end
+
+  def category_show_text
+    truncate(text, :length => 297)
   end
 
 end

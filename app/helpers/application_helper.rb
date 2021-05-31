@@ -22,4 +22,13 @@ module ApplicationHelper
     end
   end
 
+  def vote_btn(article)
+    vote = Vote.find_by(user_id: current_user_id, article_id: article.id)
+    if vote
+      link_to('Unvote', article_vote_path(id: vote.id, article_id: article.id), class: 'button is-danger max-button-size is-light', method: :delete)
+    else
+      link_to('Vote', article_votes_path(article_id: article.id), class: 'button is-success max-button-size is-light', method: :article)
+    end
+  end
+
 end

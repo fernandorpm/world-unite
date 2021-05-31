@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :new, :create]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :articles, only: [:index, :show, :new, :create]
+  resources :articles, only: [:index, :show, :new, :create] do
+    resources :votes, only: %i[create destroy]
+  end
   resources :categories, only: [:show]
 
 end

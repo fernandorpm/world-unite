@@ -1,5 +1,5 @@
 <% if Article.any? %>
-<section class='hero is-link is-large' 
+<section class='hero is-link is-large columns is-justify-content-space-between m-0' 
   <% if Article.most_voted %>
   style="
         background: url('<%= rails_blob_url(Article.most_voted.image) %>'),
@@ -10,16 +10,19 @@
         background-blend-mode: color-burn;
         " 
   <% else %>
-  style="background: grey"
+  style="background: #332f2d"
   <% end %>  
 >
-  <div class='hero-body'>
-    <p class='title is-4 is-capitalized'>
-      <%= Article.most_voted.title %>
+  <div class='hero-head m-5'>
+    <%= link_to 'Most voted Article', article_path(Article.most_voted), class:'link-border-yellow is-uppercase' %>
+  </div>
+  <div class='hero-foot m-5'>
+    <p class='title is-4 is-capitalized orange-text mb-2'>
+      <%= link_to Article.most_voted.title, article_path(Article.most_voted) %>
     </p>
-    <p class='subtitle'>
-      <%= Article.most_voted.mini_text %>
-    </p>
+    <b class='is-6'>
+      <%= link_to Article.most_voted.mini_text, article_path(Article.most_voted) %>
+    </b>
   </div>
 </section>
 <% end %>

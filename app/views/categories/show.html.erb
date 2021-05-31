@@ -1,32 +1,40 @@
-<section class="container">
-  <h1 class="title is-2 mb-1">Articles in <%= @category.name %></h1>
-  <h3 class="mb-5"><%= pluralize(@category.articles.count, 'Article') %></h3>
+<div class="brown-bg">
+<div class="columns m-0">
+  <div class="column is-6 columns p-0">
+    <% @category.articles.each do |article| %>
 
-  <br>
-
-  <% @category.articles.each do |article| %>
-    <div class="columns m-1">
-      <div class="column is-2" 
-        style="
+      <div class="column is-6 p-0" style="
           background: url('<%= rails_blob_url(article.image) %>');
           background-repeat: no-repeat;
           background-position: center;
           background-size: cover;
           background-blend-mode: color-burn;
-          min-height: 200px;
-          "
-      >
+          min-height: 300px;
+          ">
       </div>
-      <div class="column is-10 is-flex is-flex-direction-column is-justify-content-space-between p-0 pl-5">
-        <div>
-          <h3 class="title is-3 m-0 is-capitalized"><%= article.title %></h3>
-          <h4>by <b><%= article.author.name %></b> in <%= article.categories.first.name %></h4>
+      <div class="column is-6 is-flex is-flex-direction-column is-justify-content-space-between p-0 px-4 pb-5 has-background-white">
+        <div class="px-3">
+          <br>
+          <%= link_to @category.name, category_path, class:"category-title-on-index" %>
+            <br>
+            <br>
+            <h3>
+              <%= link_to article.title, article, class: 'title is-5 m-0 is-capitalizede' %>
+            </h3>
+            <br>
         </div>
-        <h4 class="title is-6"><%= article.mini_text %></h4>
-        <%= link_to 'Read', article, class: 'button max-button-size' %>
+        <div class="px-3">
+        <h4 class="is-6 mb-5">
+          <%= article.category_show_text %>
+        </h4>
+        <%= vote_btn(article) %>
+          <div class="mb-5"></div>
+        </div>
       </div>
-    </div>
 
-    <hr>
-  <% end %>
-</section>
+    <% end %>
+  </div>
+
+</div>
+</div>
+<%= render 'shared/footer' %>

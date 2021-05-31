@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container p-5 has-background-white">
   <h1 class="title is-2 mb-1">All Articles</h1>
   <h3 class="mb-5"><%= pluralize(@articles.count, 'Article') %></h3>
   <%= link_to 'Write an Article', new_article_path, class:'button is-link' %>
@@ -19,13 +19,13 @@
           "
       >
       </div>
-      <div class="column is-10 is-flex is-flex-direction-column is-justify-content-space-between p-0 pl-5">
+      <div class="column is-10 is-flex is-flex-direction-column is-justify-content-space-between p-0 px-3">
         <div>
-          <h3 class="title is-3 m-0 is-capitalized"><%= article.title %></h3>
+          <h3 class="title is-3 m-0 is-capitalized"><%= link_to article.title, article, class: 'title is-3 m-0 is-capitalizede' %></h3>
           <h4>by <b><%= article.author.name %></b> in <%= article.categories.first.name %></h4>
         </div>
         <h4 class="title is-6"><%= article.mini_text %></h4>
-        <%= link_to 'Read', article, class: 'button max-button-size' %>
+        <%= vote_btn(article) %>
       </div>
     </div>
 
