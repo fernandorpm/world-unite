@@ -12,16 +12,21 @@
 
   <body>
     <%= render 'shared/navbar' %>
-    <div class='has-navbar'>
-      <% if notice %>
-        <div class='notification is-success is-light'><%= notice %></div>
-      <% end %>
-      <% if alert %>
-        <div class='notification is-danger is-light'><%= alert %></div>
-      <% end %>
+    <%= render 'shared/menu_mobile' %>
+      <div>
+        <% if notice %>
+          <div class='notification is-success is-light'><%= notice %></div>
+        <% end %>
+        <% if alert %>
+          <div class='notification is-danger is-light'><%= alert %></div>
+        <% end %>
 
-      <%= yield %>
-    </div>
+        <%= yield %>
+      </div>
+
+      <div>
+        <%= render 'shared/footer' %>
+      </div>
 
   </body>
 </html>

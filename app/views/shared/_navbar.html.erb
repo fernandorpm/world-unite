@@ -1,11 +1,14 @@
-<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top">
+  <button class="navbar-brand only-mobile navbar-item border-0" onclick="showMenu()">
+    <%= show_svg('menu.svg') %>
+  </button>
   <div class="navbar-brand">
     <a class="navbar-item" href="<%= root_path %>">
       <h1 class="title is-5">WORLD <b class="orange-text">UNITE</b></h1>
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div class="navbar-menu">
     <div class="navbar-start">
       <%= link_to 'HOME' , root_path, class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %>
 
@@ -19,3 +22,15 @@
     </div>
   </div>
 </nav>
+
+<script>
+
+  function showMenu() {
+    if (document.getElementById("menu-mobile").style.left == "0px")
+      document.getElementById("menu-mobile").style.left = "-250px";
+    else
+      document.getElementById("menu-mobile").style.left = "0px";
+
+
+  }
+</script>

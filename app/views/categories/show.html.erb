@@ -1,4 +1,3 @@
-<div class="brown-bg">
 <div class="m-0 all-news-container">
 <% i = 0 %>
   <% @category.articles.each do |article| %>
@@ -8,18 +7,19 @@
 
       <%= show_path_image(article, i) %>
 
-      <div class="column is-6 is-flex is-flex-direction-column is-justify-content-space-between p-0 px-4 pb-5 has-background-white">
+      <div class="column is-6 is-flex is-flex-direction-column is-justify-content-space-between p-0 px-4 pb-5 has-background-white-2">
         <div class="px-3">
           <br>
           <%= link_to @category.name, category_path, class:"category-title-on-index" %>
           <br>
           <br>
-          <h3><%= link_to article.title, article, class: 'title is-5 m-0 is-capitalizede' %></h3>
+          <h3><%= link_to article.title, article, class: 'title is-5 m-0' %></h3>
           <br>
         </div>
 
         <div class="px-3">
         <h4 class="is-6 mb-5"><%= article.category_show_text %></h4>
+        <p class="has-text-grey mb-5">by <%= article.author.name %></p>
         <%= vote_btn(article) %>
         <div class="mb-5"></div>
         </div>
@@ -28,9 +28,8 @@
       <% i = 0 if i == 4 %>
 
     </div>
-    
+
   <% end %>
 
 </div>
-</div>
-<%= render 'shared/footer' %>
+

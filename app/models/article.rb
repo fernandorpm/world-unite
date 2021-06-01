@@ -32,7 +32,7 @@ class Article < ApplicationRecord
   end
 
   def category_show_text
-    truncate(text, :length => 297)
+    truncate(text, :length => 197)
   end
 
 end
