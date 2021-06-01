@@ -1,39 +1,35 @@
 <div class="brown-bg">
-<div class="columns m-0">
-  <div class="column is-6 columns p-0">
-    <% @category.articles.each do |article| %>
+<div class="m-0 all-news-container">
+<% i = 0 %>
+  <% @category.articles.each do |article| %>
+    <div class="news-container">
 
-      <div class="column is-6 p-0" style="
-          background: url('<%= rails_blob_url(article.image) %>');
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
-          background-blend-mode: color-burn;
-          min-height: 300px;
-          ">
-      </div>
+      <% i += 1 %>
+
+      <%= show_path_image(article, i) %>
+
       <div class="column is-6 is-flex is-flex-direction-column is-justify-content-space-between p-0 px-4 pb-5 has-background-white">
         <div class="px-3">
           <br>
           <%= link_to @category.name, category_path, class:"category-title-on-index" %>
-            <br>
-            <br>
-            <h3>
-              <%= link_to article.title, article, class: 'title is-5 m-0 is-capitalizede' %>
-            </h3>
-            <br>
+          <br>
+          <br>
+          <h3><%= link_to article.title, article, class: 'title is-5 m-0 is-capitalizede' %></h3>
+          <br>
         </div>
+
         <div class="px-3">
-        <h4 class="is-6 mb-5">
-          <%= article.category_show_text %>
-        </h4>
+        <h4 class="is-6 mb-5"><%= article.category_show_text %></h4>
         <%= vote_btn(article) %>
-          <div class="mb-5"></div>
+        <div class="mb-5"></div>
         </div>
       </div>
 
-    <% end %>
-  </div>
+      <% i = 0 if i == 4 %>
+
+    </div>
+    
+  <% end %>
 
 </div>
 </div>
