@@ -111,7 +111,6 @@
   cursor: pointer;
 }
 
-
  .index-category-container {
    height: 200px;
    display: flex;
@@ -199,6 +198,24 @@
   background-color: #3d3836;
 }
 
+.footer .navbar-end {
+  display: flex;
+  align-items: center;
+}
+
+ .connect-with-us {
+   background: orangered;
+   border-radius: 50px;
+   width: 40px;
+   height: 40px;
+   display: flex;
+   justify-content: center;
+   margin-right: 10px;
+ }
+
+ .connect-with-us:hover {
+   background: orange !important;
+ }
 
  @media (min-width: 800px) {
   .display-flex-index > * {
