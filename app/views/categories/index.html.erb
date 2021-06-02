@@ -1,0 +1,27 @@
+<%= render 'most_voted_article' %>
+
+  <div class='display-flex-index w-100 m-0'>
+    <% @categories.sort_by_priority.each do |category| %>
+      <% if category.articles.first %>
+        <div class='bg-img' style="
+                background: url('<%= rails_blob_url(category.articles.first.image) %>'),
+                linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 80%);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                background-blend-mode: color-burn;
+                ">
+          <div class='p-4'>
+            <div class='index-category-container'>
+              <p>
+                <%= link_to category.name, category_path(category), class:'link-border-yellow is-uppercase' %>
+              </p>
+              <p class="is-capitalized">
+                <%= category.articles.first.title %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>

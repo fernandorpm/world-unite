@@ -1,0 +1,8 @@
+<div class="menu-mobile" id="menu-mobile">
+  <%= link_to 'HOME' , root_path, class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey mt-5' %>
+
+  <%= link_to 'Write an Article' , new_article_path,
+    class: 'navbar-item is-uppercase has-text-weight-semibold has-text-grey' %>
+  <hr class="mx-3">
+  <%= logged_in? %>
+</div>
