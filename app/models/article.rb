@@ -10,7 +10,7 @@ class Article < ApplicationRecord
 
   has_one_attached :image, dependent: :destroy
 
-  has_many :votes, foreign_key: 'article_id'
+  has_many :votes, foreign_key: 'article_id', dependent: :destroy
 
   has_many :article_categories, class_name: 'ArticleCategory'
   has_many :categories, through: :article_categories, class_name: 'Category', dependent: :destroy

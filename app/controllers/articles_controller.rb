@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles or /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.includes(:author).all
   end
 
   # GET /articles/1 or /articles/1.json
@@ -37,7 +37,7 @@ class ArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      @article = Article.find(params[:id])
+      @article = Article.includes(:author).find(params[:id])
     end
 
     # Check if there is a user logged in (stored in sessions)
