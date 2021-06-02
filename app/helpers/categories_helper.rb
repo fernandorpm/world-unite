@@ -1,4 +1,5 @@
 module CategoriesHelper
+  
   def show_path_image(article, i)
     order_index = i <= 2? -1 : 2;
 

@@ -219,7 +219,7 @@
 
  @media (min-width: 800px) {
   .display-flex-index > * {
-    max-width: calc(100%/3);
+    width: calc(100%/3);
   }
 
   .news-container {
@@ -229,7 +229,7 @@
 
  @media (min-width: 1200px) {
   .display-flex-index > * {
-    max-width: calc(100%/6);
+    width: calc(100%/6);
   }
 
   .news-container {
