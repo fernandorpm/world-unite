@@ -17,7 +17,7 @@ Original design by [Nelson Sakwa](https://www.behance.net/sakwadesignstudio).
 
 ## Live Demo
 
-[Not available yet](https://livedemo.com)
+[World Unite on Heroku](https://world-unite.herokuapp.com)
 
 
 ## Getting Started
