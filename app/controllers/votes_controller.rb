@@ -1,5 +1,5 @@
 class VotesController < ApplicationController
-  before_action :redirect_unlogged_user, only: %i[ create destroy ]
+  before_action :redirect_unlogged_user, only: %i[create destroy]
 
   include ApplicationHelper
 
@@ -30,16 +30,16 @@ class VotesController < ApplicationController
 
   private
 
-    # Check if there is a user logged in (stored in sessions)
-    def logged_in?
-      return session[:name]
-    end
+  # Check if there is a user logged in (stored in sessions)
+  def logged_in?
+    session[:name]
+  end
 
-    # Redirect the visitor if they're not logged in
-    def redirect_unlogged_user
-      if !logged_in?
-        redirect_to new_session_path
-        flash[:alert] = 'You must be logged in to vote or unvote.'
-      end
-    end
+  # Redirect the visitor if they're not logged in
+  def redirect_unlogged_user
+    return if logged_in?
+
+    redirect_to new_session_path
+    flash[:alert] = 'You must be logged in to vote or unvote.'
+  end
 end

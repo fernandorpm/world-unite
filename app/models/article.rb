@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
   include ActionView::Helpers::TextHelper
-  
+
   validates :title, :text, :image, presence: true
   validates :title, length: { in: 8..100 }
   validates :text, length: { in: 50..5000 }
@@ -17,8 +17,8 @@ class Article < ApplicationRecord
 
   accepts_nested_attributes_for :categories, allow_destroy: true
 
-  scope :most_voted, -> {
-    if Vote.count > 0
+  scope :most_voted, lambda {
+    if Vote.count.positive?
       joins(:votes)
         .group(:article_id, :id)
         .order('COUNT(votes.article_id) desc')
@@ -29,11 +29,10 @@ class Article < ApplicationRecord
   }
 
   def mini_text
-    truncate(text, :length => 97)
+    truncate(text, length: 97)
   end
 
   def category_show_text
-    truncate(text, :length => 197)
+    truncate(text, length: 197)
   end
-
 end

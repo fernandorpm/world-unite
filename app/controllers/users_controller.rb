@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   # GET /users/new
   def new
     @user = User.new
@@ -13,7 +12,7 @@ class UsersController < ApplicationController
       if @user.save
         session[:name] = @user.name
         session[:user_id] = @user.id
-        format.html { redirect_to root_path, notice: "User was successfully created." }
+        format.html { redirect_to root_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -23,13 +22,14 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:name)
+  end
 end

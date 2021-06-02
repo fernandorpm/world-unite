@@ -13,7 +13,7 @@ RSpec.describe Category, type: :model do
         .is_at_most(30)
     }
 
-    #priority
+    # priority
     it { should validate_presence_of(:priority) }
   end
 end

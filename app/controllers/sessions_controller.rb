@@ -1,9 +1,8 @@
 class SessionsController < ApplicationController
-  before_action :redirect_unlogged_user, only: %i[ destroy ]
+  before_action :redirect_unlogged_user, only: %i[destroy]
 
   # GET /sessions/new
-  def new
-  end
+  def new; end
 
   # POST /sessions
   def create
@@ -19,7 +18,6 @@ class SessionsController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         flash.now[:alert] = 'Name not found. Please try again.'
       end
-
     end
   end
 
@@ -30,17 +28,17 @@ class SessionsController < ApplicationController
   end
 
   private
-    # Check if there is a user logged in (stored in sessions)
-    def logged_in?
-      return session[:name]
-    end
 
-    # Redirect the visitor if they're not logged in
-    def redirect_unlogged_user
-      if !logged_in?
-        redirect_to new_session_path
-        flash[:alert] = 'You must be logged in to log out, dummy!'
-      end
-    end
+  # Check if there is a user logged in (stored in sessions)
+  def logged_in?
+    session[:name]
+  end
 
+  # Redirect the visitor if they're not logged in
+  def redirect_unlogged_user
+    return if logged_in?
+
+    redirect_to new_session_path
+    flash[:alert] = 'You must be logged in to log out, dummy!'
+  end
 end

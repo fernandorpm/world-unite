@@ -9,7 +9,7 @@ RSpec.describe Article, type: :model do
   end
 
   describe 'is valid with valid attributes' do
-    #title
+    # title
     it { should validate_presence_of(:title) }
     it {
       should validate_length_of(:title)
@@ -22,6 +22,5 @@ RSpec.describe Article, type: :model do
       should validate_length_of(:text)
         .is_at_most(5000)
     }
-
   end
 end
