@@ -1,0 +1,23 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div class='notification is-danger is-light'>
+      <h2 class='title is-5'><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <br>
+    <%= form.text_field :name, class: 'w-100' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Register', class:'button is-success w-100 my-5' %>
+  </div>
+<% end %>

@@ -1,0 +1,279 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css";
+
+ body {
+  padding-top: 72px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh !important;
+  align-items: space-between !important;
+  align-content: space-between !important;
+  justify-content: space-between !important;
+ }
+
+ html {
+  background: #3d3836;
+ }
+
+ .mx-auto {
+  margin: 0 auto;
+ }
+
+ .w-100 {
+   width: 100%;
+ }
+
+ .max-w-50 {
+   max-width: 25%;
+ }
+
+ .min-h-100 {
+   min-height: calc(100vh - 72px);
+ }
+
+ .navbar {
+   padding: 10px;
+   display: flex;
+   z-index: 5;
+   box-shadow: 0 0 15px rgb(0, 0, 0, 0.1);
+ }
+
+ .has-background-white {
+  box-shadow: 0 0 150px rgb(0, 0, 0, 0.6);
+ }
+
+ .navbar-item:hover {
+   color: orangered !important;
+ }
+
+ .orange-text {
+  color: orangered !important;
+}
+
+.navbar-start {
+  margin: 0;
+  margin-left: auto !important;
+}
+
+.navbar-menu {
+  display: flex;
+  box-shadow: none;
+}
+
+.menu-mobile {
+  width: 250px;
+  height: 100vh;
+  background: #4e443f;
+  position: fixed;
+  z-index: 3;
+  transition-duration: 0.2s;
+  display: block;
+  left: -250px;
+}
+
+.menu-mobile * {
+  color: white !important;
+}
+
+.menu-mobile a:hover {
+  background-color: #3d3836;
+}
+
+.menu-mobile .navbar-logged-in {
+  display: block;
+}
+
+.hero {
+  height: 60vh;
+}
+
+.border-0 {
+  border: 0;
+  background: white;
+}
+
+.border-0:hover {
+  cursor: pointer;
+}
+
+ .index-category-container {
+   height: 200px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   font-weight: bold;
+   color: white;
+ }
+
+ .category-title-on-index {
+   color: orange !important;
+   border-bottom: 2px solid orange;
+   font-weight: bold;
+ }
+
+ .link-border-yellow {
+   color: white !important;
+   font-weight: bold;
+   border-bottom: 2px solid yellow;
+   transition-duration: 0.2s;
+ }
+
+ .link-border-yellow:hover {
+   opacity: 0.7;
+ }
+
+ .max-button-size {
+   max-width: 120px;
+ }
+
+ .article-container {
+   max-width: 800px;
+   margin: 0 auto;
+ }
+
+ textarea,
+ input {
+   border-radius: 4px;
+   border: 1px solid lightgrey;
+   padding: 8px;
+   min-width: 100%;
+ }
+
+ select {
+   padding: 4px;
+ }
+
+ .display-flex-index {
+   display: flex;
+   flex-wrap: wrap;
+ }
+
+ .display-flex-index > * {
+   max-width: 50%;
+ }
+
+ .all-news-container {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+ }
+
+ .news-container {
+   width: 100%;
+ }
+
+ .only-mobile {
+   display: none;
+ }
+
+ .has-background-white-2 {
+   background-color: white;
+ }
+
+ .footer {
+   background: #4e443f;
+   z-index: 4;
+ }
+
+ .footer-item {
+  background: #4e443f;
+ }
+
+ .footer a:hover {
+  background-color: #3d3836;
+}
+
+.footer .navbar-end {
+  display: flex;
+  align-items: center;
+}
+
+ .connect-with-us {
+   background: orangered;
+   border-radius: 50px;
+   width: 40px;
+   height: 40px;
+   display: flex;
+   justify-content: center;
+   margin-right: 10px;
+ }
+
+ .connect-with-us:hover {
+   background: orange !important;
+ }
+
+ @media (min-width: 800px) {
+  .display-flex-index > * {
+    width: calc(100%/3);
+  }
+
+  .news-container {
+    display: flex;
+  }
+ }
+
+ @media (min-width: 1200px) {
+  .display-flex-index > * {
+    width: calc(100%/6);
+  }
+
+  .news-container {
+    display: flex;
+    width: 50%;
+  }
+ }
+
+ @media (max-width: 1024px) {
+   .only-mobile {
+     display: flex;
+   }
+
+   body {
+    padding-top: 62px;
+   }
+
+   .navbar {
+    justify-content: space-between;
+    padding: 0;
+   }
+
+   .navbar-start {
+     display: none;
+   }
+
+   .navbar-end {
+     padding-top: 4px;
+   }
+
+   .navbar-logged-in {
+     display: none;
+   }
+
+ }
+
+ @media (min-width: 1024px) {
+  .menu-mobile {
+    display: none;
+  }
+ }
+
+ @media (max-width: 1200px) {
+   .news-image {
+     order: -1 !important;
+   }
+ }

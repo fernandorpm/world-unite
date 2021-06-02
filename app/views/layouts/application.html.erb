@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>World Unite</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/menu_mobile' %>
+      <div>
+        <% if notice %>
+          <div class='notification is-success is-light'><%= notice %></div>
+        <% end %>
+        <% if alert %>
+          <div class='notification is-danger is-light'><%= alert %></div>
+        <% end %>
+
+        <%= yield %>
+      </div>
+
+      <div>
+        <%= render 'shared/footer' %>
+      </div>
+
+  </body>
+</html>

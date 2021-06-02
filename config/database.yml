@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  database: lifestyle_articles_development
+  host: localhost
+  username: root
+  password: 'rootpassword'
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  adapter: postgresql
+
+test:
+  <<: *default
+  adapter: postgresql
+  database: lifestyle_articles_test
+
+production:
+  <<: *default
+  database: lifestyle_articles_production
+  username: lifestyle-articles
+  password: <%= ENV['LIFESTYLE_ARTICLES_DATABASE_PASSWORD'] %>

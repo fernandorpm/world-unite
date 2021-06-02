@@ -1,0 +1,14 @@
+<%= form_with url: sessions_path do |form| %>
+
+  <h1 class='title'>Login</h1>
+
+  <div class="field">
+    <%= form.label :name %>
+    <br>
+    <%= form.text_field :name, class: 'w-100' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Log In", class: 'button is-link w-100 my-5' %>
+  </div>
+<% end %>

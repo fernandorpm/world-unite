@@ -1,0 +1,44 @@
+<%= form_with(model: article) do |form| %>
+  <% if article.errors.any? %>
+    <div class='notification is-danger is-light'>
+      <h2 class='title is-5'><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+        <% article.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :category_id %>
+    <br>
+    <%= form.collection_select :category_id, Category.all, :id, :name, class: 'w-100' %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :author_id, value: current_user_id, readonly: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <br>
+    <%= form.text_field :title, class: 'w-100' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text %>
+    <br>
+    <b><%= form.text_area :text, class: 'w-100', cols: 50, rows: 10 %></b>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, class: 'w-100' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Save Article', class: 'button is-success w-100 my-5' %>
+  </div>
+<% end %>

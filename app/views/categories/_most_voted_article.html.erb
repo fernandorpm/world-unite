@@ -1,0 +1,28 @@
+<% if Article.any? %>
+<section class='hero is-link is-large columns is-justify-content-space-between m-0' 
+  <% if Article.most_voted %>
+  style="
+        background: url('<%= rails_blob_url(Article.most_voted.image) %>'),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0.8) 100%);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-blend-mode: color-burn;
+        " 
+  <% else %>
+  style="background: #332f2d"
+  <% end %>  
+>
+  <div class='hero-head m-5'>
+    <%= link_to 'Most voted Article', article_path(Article.most_voted), class:'link-border-yellow is-uppercase' %>
+  </div>
+  <div class='hero-foot m-5'>
+    <p class='title is-4 is-capitalized orange-text mb-2'>
+      <%= link_to Article.most_voted.title, article_path(Article.most_voted) %>
+    </p>
+    <b class='is-6'>
+      <%= link_to Article.most_voted.mini_text, article_path(Article.most_voted) %>
+    </b>
+  </div>
+</section>
+<% end %>
