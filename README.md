@@ -38,9 +38,9 @@ Original design by [Nelson Sakwa](https://www.behance.net/sakwadesignstudio).
 
 - Run `yarn install` to install the project dependencies
 
-- Run `rails db:migrate` to create the database
+- Run `rails db:create` to create the database
 
-- Run `rails db:seed` to populate the database
+- Run `rails db:migrate` to create the tables
 
 - Run `rails s` and go to `http://127.0.0.1:3000`.
 
