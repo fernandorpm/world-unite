@@ -2,11 +2,11 @@
 
 # Microverse RoR Capstone: liFEsTlye (World Unite)
 
-> [liFEsTlye](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version) is an articles pages where readers can get their daly dose of content, according to their categories. For this capstone, we had to create our own Article app, that I named **World Unite**, where we can get news from each and every continent of the world.
+> [liFEsTlye](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version) is an articles pages where readers can get their daily dose of content, according to their categories. For this capstone, we had to create our own Article app, that I named **World Unite**, where we can get news from each and every continent of the world.
 
 ![screenshot](./app_screenshot.png)
 
-Additional description about the project and its features.
+Original design by [Nelson Sakwa](https://www.behance.net/sakwadesignstudio).
 
 ## Built With
 
