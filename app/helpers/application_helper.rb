@@ -12,6 +12,10 @@ module ApplicationHelper
   end
 
   def current_user
+    User.where(id: current_user_id).first
+  end
+
+  def current_user_name
     session[:name]
   end
 
@@ -26,7 +30,7 @@ module ApplicationHelper
   end
 
   def vote_btn(article)
-    vote = Vote.find_by(user_id: current_user_id, article_id: article.id)
+    vote = Vote.where(user_id: current_user_id, article_id: article.id).first
     if vote
       link_to('Unvote', article_vote_path(id: vote.id, article_id: article.id),
               class: 'button is-danger max-button-size is-light', method: :delete)

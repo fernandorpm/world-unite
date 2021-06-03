@@ -35,4 +35,8 @@ class Article < ApplicationRecord
   def category_show_text
     truncate(text, length: 197)
   end
+
+  def self.get_category_of(article_id)
+    where(id: article_id).first.categories.first
+  end
 end
