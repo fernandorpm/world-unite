@@ -5,7 +5,6 @@ class Vote < ApplicationRecord
   belongs_to :article, foreign_key: :article_id
 
   def self.already_voted(user_id, article_id)
-    return !where(user_id: user_id, article_id: article_id).first.nil?
+    !where(user_id: user_id, article_id: article_id).first.nil?
   end
-
 end

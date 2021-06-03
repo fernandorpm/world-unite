@@ -23,7 +23,7 @@ class VotesController < ApplicationController
     article_id = params[:article_id]
     category = Article.get_category_of(article_id)
 
-    vote = Vote.where(id: id, user_id: current_user_id).first
+    vote = Vote.where(id: vote_id, user_id: current_user_id).first
 
     if vote
       vote.destroy
