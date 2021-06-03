@@ -4,7 +4,7 @@
 
 > [liFEsTlye](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version) is an articles pages where readers can get their daly dose of content, according to their categories. For this capstone, we had to create our own Article app, that I named **World Unite**, where we can get news from each and every continent of the world.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./screenshot.png)
 
 Original design by [Nelson Sakwa](https://www.behance.net/sakwadesignstudio).
 
@@ -39,9 +39,9 @@ Original design by [Nelson Sakwa](https://www.behance.net/sakwadesignstudio).
 
 - Run `yarn install` to install the project dependencies
 
-- Run `rails db:migrate` to create the database
+- Run `rails db:create` to create the database
 
-- Run `rails db:seed` to populate the database
+- Run `rails db:migrate` to create the tables
 
 - Run `rails s` and go to `http://127.0.0.1:3000`.
 
