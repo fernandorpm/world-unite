@@ -1,8 +1,10 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Microverse RoR Capstone: liFEsTlye (World Unite)
+# World Unite
+###### Microverse RoR Capstone: liFEsTlye
 
 > [liFEsTlye](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version) is an articles pages where readers can get their daily dose of content, according to their categories. For this capstone, we had to create our own Article app, that I named **World Unite**, where we can get news from each and every continent of the world.
+> The project was made with Ruby on Rails, deployed on Heroku, with it's images saved in Amazon S3 Bucket.
 
 ![screenshot](./screenshot.png)
 
@@ -14,6 +16,7 @@ Original design by [Nelson Sakwa](https://www.behance.net/sakwadesignstudio).
 - Ruby on Rails >= 6.1.3.1
 - Rails Active Storage
 - Bulma Framework
+- Amazon S3 Bucket
 
 ## Live Demo
 
