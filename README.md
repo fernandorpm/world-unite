@@ -14,6 +14,7 @@ Original design by [Nelson Sakwa](https://www.behance.net/sakwadesignstudio).
 - Ruby on Rails >= 6.1.3.1
 - Rails Active Storage
 - Bulma Framework
+- Amazon S3 Bucket (for images saving)
 
 ## Live Demo
 
